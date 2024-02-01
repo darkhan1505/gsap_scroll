@@ -9,10 +9,10 @@ gsap.registerPlugin({ ScrollSmoother, ScrollTrigger });
 
   gsap.fromTo(
     ".hero-section",
-    { opacity: 1, y: 0 },
+    { opacity: 1, y: -100 },
     {
       opacity: 0,
-      y: -100,
+      y: 100,
       scrollTrigger: {
         trigger: ".hero-section",
         start: "center",
@@ -21,11 +21,36 @@ gsap.registerPlugin({ ScrollSmoother, ScrollTrigger });
       },
     }
   );
+  gsap.fromTo(
+    ".zhospar",
+    {opacity: 1, y:0},
+    {
+      opacity: 0,
+      y: -30,
+      scrollTrigger: {
+        trigger: ".zhospar",
+        start: 'center',
+        end: '820',
+        scrub: true,
+      }
+    }
+  )
 
-  let itemL = gsap.utils.toArray(".gallery__left .gallery__item");
-
-  itemL.forEach((item) => {
-    gsap.fromTo(item, {opacity: 0, x: -70}, {
+  let zhosparR = gsap.utils.toArray(".zhospar-right .zhospar-item");
+  let zhosparL = gsap.utils.toArray(".zhospar-left .zhospar-item");
+  
+  zhosparL.forEach((item) => {
+    gsap.fromTo(item, {opacity: 0, x: -100}, {
+		x: 0,
+		opacity: 1,
+		scrollTrigger: {
+			trigger: item,
+			scrub: true
+		}
+	});
+  });
+  zhosparR.forEach((item) => {
+    gsap.fromTo(item, {opacity: 0, x:-300}, {
 		x: 0,
 		opacity: 1,
 		scrollTrigger: {
@@ -35,7 +60,20 @@ gsap.registerPlugin({ ScrollSmoother, ScrollTrigger });
 	});
   });
 
-  let itemR = gsap.utils.toArray(".gallery__right .gallery__item");
+  let itemL = gsap.utils.toArray(".zhospar-left .gallery__item");
+
+  itemL.forEach((item) => {
+    gsap.fromTo(item, {opacity: 0, x: -120}, {
+		x: 0,
+		opacity: 1,
+		scrollTrigger: {
+			trigger: item,
+			scrub: true
+		}
+	});
+  });
+
+  let itemR = gsap.utils.toArray(".zhospar-right .gallery__item");
 
   itemR.forEach((item) => {
     gsap.fromTo(item, {opacity: 0, x: 70}, {
