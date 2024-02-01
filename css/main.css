@@ -105,6 +105,7 @@ body {
 
 .zhosparlar {
 	display: flex;
+	margin-top: 40vh;
 }
 
 .zhosparlar > * {
