@@ -21,36 +21,25 @@ gsap.registerPlugin({ ScrollSmoother, ScrollTrigger });
       },
     }
   );
-  gsap.fromTo(
-    ".zhospar",
-    {opacity: 1, y:0},
-    {
-      opacity: 0,
-      y: -30,
-      scrollTrigger: {
-        trigger: ".zhospar",
-        start: 'center',
-        end: '820',
-        scrub: true,
-      }
-    }
-  )
+    
 
-  let zhosparR = gsap.utils.toArray(".zhospar-left .zhospar-item");
-  let zhosparL = gsap.utils.toArray(".zhospar-right .zhospar-item");
+  let zhosparR = gsap.utils.toArray(".zhospar-right .zhospar-item");
+  let zhosparL = gsap.utils.toArray(".zhospar-left .zhospar-item");
   
   zhosparL.forEach((item) => {
-    gsap.fromTo(item, {opacity: 0, x: -500}, {
+    gsap.fromTo(item, {opacity: 0, x: -100}, {
 		x: 0,
 		opacity: 1,
 		scrollTrigger: {
+      start: "top",
+      end: 'bottom',
 			trigger: item,
 			scrub: true
 		}
 	});
   });
   zhosparR.forEach((item) => {
-    gsap.fromTo(item, {opacity: 0, x: -70}, {
+    gsap.fromTo(item, {opacity: 0, x:-300}, {
 		x: 0,
 		opacity: 1,
 		scrollTrigger: {
@@ -60,10 +49,10 @@ gsap.registerPlugin({ ScrollSmoother, ScrollTrigger });
 	});
   });
 
-  let itemL = gsap.utils.toArray(".gallery__left .gallery__item");
+  let itemL = gsap.utils.toArray(".zhospar-left .gallery__item");
 
   itemL.forEach((item) => {
-    gsap.fromTo(item, {opacity: 0, x: -100}, {
+    gsap.fromTo(item, {opacity: 0, x: -120}, {
 		x: 0,
 		opacity: 1,
 		scrollTrigger: {
@@ -73,7 +62,7 @@ gsap.registerPlugin({ ScrollSmoother, ScrollTrigger });
 	});
   });
 
-  let itemR = gsap.utils.toArray(".gallery__right .gallery__item");
+  let itemR = gsap.utils.toArray(".zhospar-right .gallery__item");
 
   itemR.forEach((item) => {
     gsap.fromTo(item, {opacity: 0, x: 70}, {
